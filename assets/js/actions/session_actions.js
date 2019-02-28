@@ -7,7 +7,7 @@ export const AUTHENTICATION_FAILED = "AUTHENTICATION_FAILED";
 export const AUTHENTICATION_SIGNOUT = "AUTHENTICATION_SIGNOUT";
 
 export const signIn = (email, password) => ((dispatch) => {
-    return fetch(`http://localhost:4000/sessions/sign_in}`, {
+    return fetch(`http://localhost:4000/api/sessions/sign_in`, {
         method: "POST",
         headers: {
             'Accept': 'application/json',

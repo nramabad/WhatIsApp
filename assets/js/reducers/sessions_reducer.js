@@ -21,6 +21,8 @@ const sessionReducer = (state = false, action) => {
                 ...state,
                 isAuthenticated: false,
             });
+        default:
+            return null;
     }
 };
 

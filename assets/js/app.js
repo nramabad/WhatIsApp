@@ -11,27 +11,15 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+
 // import { index } from "./index"
-import React, { Component } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import Home from './components/home'
-import Login from './components/login'
-// import Signup from './components/signup'
-import { AuthRoute, PrivateRoute } from './utils/route_utils'
+import "phoenix_html"
+import configureStore from './store';
+import Root from './components/root'
 
-
-export default class App extends Component {
-    render() {
-        return (
-            <Router>
-                <Switch>
-                    <AuthRoute path='/login' component={Login} />
-                    <PrivateRoute path='/private' component={Home} />
-                </Switch>
-            </Router> )
-    }
-}
 
 // Import local files
 //
@@ -39,3 +27,8 @@ export default class App extends Component {
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+document.addEventListener('DOMContentLoaded', () => {
+    const store = configureStore();
+    ReactDOM.render(<Root store={store}/>, document.getElementById('mount'));
+});
+
